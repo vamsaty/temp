@@ -7,7 +7,7 @@ import sqlite3
 
 app = Flask('__main__',template_folder='./')
 
-@app.route(/)
+@app.route('/')
 def hw():
     return 'HELLO WORLD !!'
 
