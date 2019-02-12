@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SelfieLessActs</title>
+    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet"  href="style/index.css" />
+    <script src="scripts/jq.js" ></script>
+    <script src="scripts/index.js" ></script>
+
+</head>
+
+<body onload="resetSetting()">
+
+    <div id="wrapper">
+
+        <div id="top">
+
+            <p>
+                The best things in<br>
+                life aren't things.<br>
+                Start giving.
+            </p>
+            <img src = "./images/icons/down.png" id="downScroller" height="5%" style="cursor:pointer" onclick="smoothScroll(document.getElementById('mid'))">
+
+        </div>
+
+
+        <div id="mid">
+            <div>
+                <h1>SelfieLess Acts</h1>
+                <p>Upload pictures of benign acts around you</p>
+                <select style="cursor:pointer" id="type_selection"  onchange="enableUpload(this)">
+                    <option>Choose a Category</option>
+                    <option>People</option>
+                    <option>Environment</option>
+                    <option>Society</option>
+                </select>
+
+                <div id="uploader">
+
+                    <form id="accept_image">
+                        
+                        <input type="file" name="uploadfile" id="fileinput" style="display:none;"/>
+                        <label for="fileinput" id="uploadLabel"><img src = "./images/icons/upload2.png" height="8%"></label>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div id="gallery">
+                
+
+                <div>
+                    <div class="token">
+                        <img src="./images/society/society_beck.jpg" />
+                        <div class="insider">
+                            <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                            <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>                            <p>0</p>
+                        </div>
+                    </div>    
+                </div>
+
+                <div>
+                        <div class="token">
+                            <img src="./images/environment/HelpingTheEnvironment.jpg" />
+                            <div class="insider">
+                                <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                                <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>                                <p>0</p>
+                            </div>
+                        </div>
+                        <div class="token">
+                            <img src="./images/environment/HelpingTheEnvironment.jpg" />
+                            <div class="insider">
+                                <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                                <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>
+                                <p>0</p>
+                            </div>
+                        </div>
+                        
+                        
+                </div>
+
+                <div>
+                            <div class="token">
+                                <img src="./images/society/society_beck.jpg" />
+                                <div class="insider">
+                                    <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                                    <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>                                    <p>0</p>
+                                </div>
+                            </div>
+                            <div class="token">
+                                <img src="./images/society/society_beck.jpg" />
+                                <div class="insider">
+                                    <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                                    <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>                                    <p>0</p>
+                                </div>
+                            </div>
+                            <div class="token">
+                                <img src="./images/society/society_beck.jpg" />
+                                <div class="insider">
+                                    <button><img src="./images/icons/like.png" height="5%" onclick="incLike(this.parentNode.parentNode)"/></button>
+                                    <button><img src="./images/icons/del.png" onclick=  "killThis(this)" height="5%" /></button>                                    <p>0</p>
+                                </div>
+                            </div>
+                            
+                            
+                </div>
+
+            </div>
+
+
+            <script type="text/javascript">
+
+                function uploadfunc() {
+                    var x = document.getElementById("fileinput");
+                    x.style.display = 'inline';
+                }
+                window.smoothScroll = function (target) {
+                    var scrollContainer = target;
+                    do { //find scroll container
+                        scrollContainer = scrollContainer.parentNode;
+                        if (!scrollContainer) return;
+                        scrollContainer.scrollTop += 1;
+                    } while (scrollContainer.scrollTop == 0);
+
+                    var targetY = 0;
+                    do { //find the top of target relatively to the container
+                        if (target == scrollContainer) break;
+                        targetY += target.offsetTop;
+                    } while (target = target.offsetParent);
+
+                    scroll = function (c, a, b, i) {
+                        i++; if (i > 30) return;
+                        c.scrollTop = a + (b - a) / 30 * i;
+                        setTimeout(function () { scroll(c, a, b, i); }, 20);
+                    }
+                    // start scrolling
+                    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+                }
+
+            </script>
+
+
+        </div>
+
+       
+
+
+    </div>
+
+
+</body>
+
+
+</html>
